@@ -6,6 +6,9 @@ const dishName = document.getElementById('dish-name');
 const dishDescription = document.getElementById('dish-description');
 const dishPrice = document.getElementById('dish-price');
 
+const form = document.getElementById('cart-form');
+const cartNumDisplay = document.getElementById('number-in-cart');
+
 fetch("http://localhost:3000/menu")
     .then((response) => response.json())
     .then((menu) => {
@@ -21,6 +24,7 @@ fetch("http://localhost:3000/menu")
             // challenge 3
             newMenuItem.addEventListener('click', () => {
                 displayMenuItem(item);
+                cartNumDisplay.innerText = 0;
             })
         })
     })
@@ -34,8 +38,7 @@ function displayMenuItem(source) {
 
 // challenge 4
 
-const form = document.getElementById('cart-form');
-const cartNumDisplay = document.getElementById('number-in-cart');
+
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
